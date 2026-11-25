@@ -14,14 +14,14 @@ are piped in one go the instant "Connection successful" appears; we retry until 
 import os, re, select, subprocess, sys, time
 
 def _mac():
-    """MAC from $WATCH_MAC, else WATCH_MAC=... in ~/.config/xinji-c1-watch/config."""
+    """MAC from $WATCH_MAC, else WATCH_MAC=... in local.conf next to watch.py."""
     if os.environ.get("WATCH_MAC"): return os.environ["WATCH_MAC"]
     try:
-        for l in open(os.path.expanduser("~/.config/xinji-c1-watch/config")):
+        for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "local.conf")):
             if l.startswith("WATCH_MAC="): return l.split("=", 1)[1].strip()
     except OSError: pass
     sys.exit("Set your watch's Bluetooth address: export WATCH_MAC=AA:BB:CC:DD:EE:FF "
-             "(or put WATCH_MAC=... in ~/.config/xinji-c1-watch/config). Find it with `bluetoothctl scan on` (XINJI-C1).")
+             "(or put WATCH_MAC=... in local.conf next to watch.py). Find it with `bluetoothctl scan on` (XINJI-C1).")
 
 
 MAC = _mac()

@@ -16,7 +16,7 @@ Run from any directory (python `-I` mode), watch must be bonded to this PC:
     python3 -I watch.py info          # battery, versions, timezone, clock
     python3 -I watch.py raw 'AT+GBS?' # any AT command
 
-Set the watch address first: `export WATCH_MAC=AA:BB:CC:DD:EE:FF` (or `WATCH_MAC=...` in `~/.config/xinji-c1-watch/config`). More retries with `TRIES=40`.
+Set the watch address first: `export WATCH_MAC=AA:BB:CC:DD:EE:FF` (or `WATCH_MAC=...` in `local.conf next to watch.py`). More retries with `TRIES=40`.
 
 ## Before you run it (preconditions)
 1. Bluetooth on: `rfkill unblock bluetooth; bluetoothctl power on`. Needs `gatttool` (bluez).

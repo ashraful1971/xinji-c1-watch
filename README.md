@@ -8,7 +8,7 @@ Problem solved: touchscreen dead, so the phone app (OnWear Pro) could not bind (
 the watch) and the date/time could not be fixed. The watch's clock was ~70 days wrong; fixed from the laptop.
 
 ## TL;DR - set the clock (works)
-First `export WATCH_MAC=AA:BB:CC:DD:EE:FF` (find it via `bluetoothctl scan on`, device `XINJI-C1`), or save it as `WATCH_MAC=...` in `~/.config/xinji-c1-watch/config`.
+First `export WATCH_MAC=AA:BB:CC:DD:EE:FF` (find it via `bluetoothctl scan on`, device `XINJI-C1`), or save it as `WATCH_MAC=...` in `local.conf next to watch.py`.
 ```
 bluetoothctl pair/trust the watch once (see "Pairing"), then:
 python3 -I watch.py sync-time     # sets UTC clock = this PC, verifies by reading it back
